@@ -307,6 +307,9 @@ c-morp/
 
 ## 🧪 Benchmarks
 
+> **📊 Complete benchmark data available in [`benchmarks.csv`](benchmarks.csv)**  
+> This file contains all 46 performance metrics with targets, achieved results, and detailed descriptions.
+
 ### Performance Metrics
 
 | Metric | Target | Achieved | Status |
