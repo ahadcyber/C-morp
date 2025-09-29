@@ -1,0 +1,95 @@
+# Grafana Dashboard Configuration for C-MORP
+apiVersion: 1
+
+datasources:
+  - name: PostgreSQL
+    type: postgres
+    access: proxy
+    url: postgres:5432
+    database: microgrid_db
+    user: cmorp_user
+    secureJsonData:
+      password: secure_password
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1500
+      timescaledb: false
+
+  - name: TimescaleDB
+    type: postgres
+    access: proxy
+    url: timescaledb:5432
+    database: microgrid_timeseries
+    user: cmorp_user
+    secureJsonData:
+      password: secure_password
+    jsonData:
+      sslmode: disable
+      postgresVersion: 1500
+      timescaledb: true
+
+  - name: Prometheus
+    type: prometheus
+    access: proxy
+    url: http://prometheus:9090
+    isDefault: true
+
+providers:
+  - name: 'C-MORP Dashboards'
+    orgId: 1
+    folder: 'Microgrid'
+    type: file
+    disableDeletion: false
+    updateIntervalSeconds: 10
+    allowUiUpdates: true
+    options:
+      path: /etc/grafana/provisioning/dashboards
+
+# Dashboard JSON definitions
+dashboards:
+  - name: Energy Flow Monitor
+    uid: cmorp-energy-flow
+    panels:
+      - title: Real-time Power Generation
+        type: graph
+        datasource: TimescaleDB
+        targets:
+          - query: SELECT time, solar_power, wind_power, grid_power FROM energy_metrics
+      
+      - title: Battery State of Charge
+        type: gauge
+        datasource: TimescaleDB
+        thresholds:
+          - value: 0
+            color: red
+          - value: 30
+            color: yellow
+          - value: 70
+            color: green
+      
+      - title: Load Distribution
+        type: piechart
+        datasource: PostgreSQL
+      
+      - title: Carbon Emissions Saved
+        type: stat
+        datasource: PostgreSQL
+        unit: kg CO2
+
+  - name: Optimization Metrics
+    uid: cmorp-optimization
+    panels:
+      - title: Cost Savings
+        type: timeseries
+      - title: Peak Demand Reduction
+        type: bar
+      - title: Algorithm Performance
+        type: heatmap
+
+  - name: Alert Dashboard
+    uid: cmorp-alerts
+    panels:
+      - title: Active Alerts
+        type: table
+      - title: Alert History
+        type: logs
