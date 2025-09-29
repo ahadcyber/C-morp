@@ -227,10 +227,11 @@ c-morp/
 ├── suricata/
 │   └── suricata.yaml      # Optional IDS config
 └── docs/
-    ├── QuickStart.pdf     # Judge-friendly guide
-    ├── DeploymentGuide.pdf
-    ├── TraceMatrix.xlsx
-    └── SecurityThreatModel.pdf
+    ├── QuickStart.pdf.md     # Judge-friendly guide
+    ├── DeploymentGuide.pdf.md
+    ├── API_Documentation.md
+    ├── TraceMatrix.csv
+    └── SecurityThreatModel.pdf.md
 ```
 
 ---
@@ -260,6 +261,23 @@ c-morp/
 - Carbon Saved: 234 kg CO₂/day
 - Renewable %: 68.5%
 - Battery Cycles: 0.8/day (healthy)
+
+---
+
+## 📖 Documentation
+
+- **[Quick Start Guide](docs/QuickStart.pdf.md)** - 5-minute setup
+- **[Deployment Guide](docs/DeploymentGuide.pdf.md)** - Production deployment
+- **[API Documentation](docs/API_Documentation.md)** - Complete API reference
+- **[Trace Matrix](docs/TraceMatrix.csv)** - Requirements traceability (CSV format)
+- **[Security Model](docs/SecurityThreatModel.pdf.md)** - Threat analysis
+
+> **Note**: `.pdf.md` files are markdown formatted for easy conversion to PDF using `pandoc`. To convert:
+> ```bash
+> pandoc docs/DeploymentGuide.pdf.md -o docs/DeploymentGuide.pdf
+> pandoc docs/QuickStart.pdf.md -o docs/QuickStart.pdf
+> pandoc docs/SecurityThreatModel.pdf.md -o docs/SecurityThreatModel.pdf
+> ```
 
 ---
 
@@ -302,16 +320,6 @@ docker-compose up -d
 
 ---
 
-## 📖 Documentation
-
-- **[Quick Start Guide](docs/QuickStart.pdf)** - 5-minute setup
-- **[Deployment Guide](docs/DeploymentGuide.pdf)** - Production deployment
-- **[API Documentation](http://localhost:5000/api/docs)** - Interactive API docs
-- **[Trace Matrix](docs/TraceMatrix.xlsx)** - Requirements traceability
-- **[Security Model](docs/SecurityThreatModel.pdf)** - Threat analysis
-
----
-
 ## 🏆 Smart India Hackathon 2025
 
 ### Why C-MORP Stands Out
@@ -346,7 +354,7 @@ Everything is pre-configured for immediate demonstration!
 
 - **Documentation**: `/docs` folder
 - **Issues**: GitHub Issues
-- **Email**: jinesh9@mrotzis.com
+- **Email**: team@c-morp.io
 
 ---
 
