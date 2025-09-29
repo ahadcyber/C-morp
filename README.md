@@ -346,7 +346,7 @@ Everything is pre-configured for immediate demonstration!
 
 - **Documentation**: `/docs` folder
 - **Issues**: GitHub Issues
-- **Email**: team@c-morp.io
+- **Email**: jinesh9@mrotzis.com
 
 ---
 
