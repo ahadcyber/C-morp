@@ -1,4 +1,8 @@
-
+"""
+Plugin Adapter System - C-MORP
+Base classes for hardware and system adapters
+Smart India Hackathon 2025
+"""
 
 from abc import ABC, abstractmethod
 from typing import Dict, Any, Optional
