@@ -1,7 +1,7 @@
 {
   "name": "C-MORP - Campus Microgrid Optimization Platform",
   "short_name": "C-MORP",
-  "description": "Real-time microgrid optimization and monitoring platform for Smart India Hackathon 2025",
+  "description": "Real-time microgrid optimization and monitoring platform for Smart India Hackathon 2025, Developed by Ahad & Jinesh",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#2c3e50",
